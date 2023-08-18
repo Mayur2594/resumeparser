@@ -1,0 +1,167 @@
+Summarize the text below into a JSON with exactly the following structure {first_name, last_name, full_name, Email, PhoneNo, Address, Aadhaar, Pan, Date Of Birth in format "DD/MM/YYYY", City, State, Pincode, Zipcode, Skill Set, Additional Info, PanCard Number, Salary, Gender, [CUSTOM_FIELDS]}. strictly keep Additional Info and Address should be merge in one single paragraph, Skill Set strictly in comma sperated string [CUSTOM_DESCRIPTION]:Abhishek Ajit Singh
+A-201,Awing,Elite height,
+Phone No: 9870737167
+Near PMC Bank, Sector 10 ,
+Kopragaon,Kharghar,Navi Mumbai:410210.
+Email id: abhishekajitsingh@gmail.com
+Career Objective:
+To succeed in an environment of growth and excellence and earn a job which provides me job Satisfaction and self-development and help me achieve personal as well as organization goals.
+Academic Qualifications:
+Graduation Completed in Computer Science from M.D.College of Science,Commerce and Arts.
+Diploma in DOTNET from NIIT.
+Technical Skills:
+Programming: .NET 4.0, C# , OOPS, C++, XML
+Database: SQL Server.
+ORM: Entity Framework, Entity Framework Code First.
+Web Technologies: ASP.NET , ASP.NET MVC 5, Ajax, JQuery, JavaScript, CSS.
+Tools: Visual Studio, TFS.
+Methodologies: Waterfall Model.
+Operating system: Windows 10,8,7,XP
+Web Server: IIS 7.0
+Work Experience:
+Imatic Technology Ltd.
+Company Name
+:
+Imatic Technology Ltd.
+Position
+:
+ASP.NET Developer & ASP.NET MVC Developer.
+Location
+:
+Navi Mumbai.
+Working Period
+:
+1st April 2021 to till date.
+Project
+: Insurance detail and buying (web application).
+Role
+:
+ASP.Net MVC Developer.
+Duration
+:
+01/04/2021 to till date.
+Environment
+: C#,.netmvc.
+Responsibility
+: Gathering requirement & Analysis, Development.
+Description
+:
+In this web application user will get insurance details with all type of insurance product and insurers ,brokers also get benefits using this application.
+My Mobile Payments Ltd.
+Company Name
+:
+My Mobile Payments Ltd.
+Position
+:
+ASP.NET Developer & ASP.NET MVC Developer.
+Location
+:
+Malad (West).
+Working Period
+:
+25th November 2013 to 31st March 2021.
+Project 01:
+Project
+: CRM Portal & Call-Back Portal.
+Role
+:
+ASP.Net Developer.
+Duration
+:
+3/04/2015 to 29/07/2015
+Environment
+: C#, Visual Studio .NET, ADO.NET and SQL Server 2012.
+Responsibility
+: Gathering requirement & Analysis, Development.
+Description
+:
+CRM is a comprehensive customer support management software that
+provides help desk agents and account managers, an integrated console to
+monitor and maintain the customer accounts and track the support requests
+from the customers. As the CRM was Missed Call based, it also consisted of Call Back System where the customers missed called tracker information was displayed.
+Project 02:
+Project
+:
+Money on Mobile Full System Up-gradation
+Role
+: ASP.Net MVC Developer and Web API Developer.
+Duration
+:
+05/10/2015 to 10/12/2016.
+Environment :
+C#, Visual Studio .NET, ADO.NET, MVC 5, Razor Engine, HTML,
+JavaScript, JQuery, JSON and SQL Server 2012.
+Responsibility
+: Gathering Requirement & Analysis, Development.
+Description
+: As the system was upgrading, all services/portals/product provided by the
+company were again rebuilt from the scratch. So the objective was to
+rebuild all the services related portals namely B2B Customer Web Portal,
+Admin Portal, Accounts and Credit Department internal portal and also
+Customer Care Portal (CRM) were built.
+Project 03:
+Project
+:
+Money on Mobile (MOM) API for SMS Based Recharge and
+Recharge API for Affiliated Partner's.
+Role
+: ASP.Net Web API Developer.
+Duration
+:
+01/06/2016 to 10/12/2016.
+Environment :
+C#, Visual Studio ASP.NET, ASP.NET Web API, ADO.NET, MVC 5,
+SQL Server 2012.
+Responsibility
+: Gathering Requirement & Analysis, Development.
+Description
+: Money on Mobile API lets Partner's integrate MOM services into websites
+or applications.
+College Project Details:
+Project 1 :
+Project Title
+: Real Estate Management.
+Team Size
+: Real EstateManagement.
+: 2
+Description
+:
+The objective of the project is to develop a website in which user can get
+the details about the real estate according to the role, i.e. agent, buyer,
+seller.
+Language Used
+:
+Front End : ASP.NET, Back end : SQL 2005
+Project 2:
+Project Title
+:
+Milk Management System.
+Description
+: The objective of the system is to develop a project in which user can
+maintain day to day accounting of selling and purchasing of milk.
+Also there are details of employees who are working.
+Language Used
+:
+Front End : Visual Basic 6.0, Back end : SQL 2005
+Personal Details:
+Date of Birth
+:
+09-December-1986.
+Marital Status
+:
+Married.
+Hobbies
+:
+Listening music, Web Surfing.
+Languages Known
+:
+English, Marathi and Hindi.
+Strength
+:
+Optimistic, Self confident, and Smart-working.
+Declaration:
+I hereby declare that the above mentioned details are true as per my belief and knowledge.
+Date:
+Place:
+Abhishek Ajit Singh.
+{end}

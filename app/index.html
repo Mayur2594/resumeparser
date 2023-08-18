@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Parse Resumes</h1>
+  <p>Select multiple resume files and parse into JSON (supported file: pdf, doc, docx)</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    
+     <form id="fileUploadForm" enctype="multipart/form-data">
+        <div class="form-group mb-2 mt-1">
+            <lable for="file-selector"></lable>
+            <input type="file" name="file" id="file-selector" multiple>
+        </div>
+        <div class="col-12 text-center border-top border-secondary p-2">
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+    </form>
+    </div>
+
+    <div id="response" class="col-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Date Of Birth</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Pincode</th>
+                        <th>Skill Set</th>
+                        <th>Additional Info</th>
+                        <th>Gender</th>
+                    </thead>
+                    <tbody id="candidate-list">
+                        
+                    </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</div>
+	<script>
+    
+    
+    var seletedFiles = [];
+    
+    $(document).ready(function() {
+            $('#fileUploadForm').submit(function(e) {
+                e.preventDefault();
+            if(seletedFiles && seletedFiles.length > 0)
+            {
+                for(var i = 0 ; i < seletedFiles.length; i++)
+                {
+                	uploadFile(seletedFiles[i]);
+                }
+            }
+            });
+        });
+        
+        $("#file-selector").change(function(){
+        	seletedFiles = this.files; 
+        })
+        
+    function uploadFile(_file) {
+            var formData = new FormData();
+            formData.append('files', _file);
+          $.ajax({
+        url: "https://pocketresumeparser.azurewebsites.net/api/uploadCandidateResumes", // Replace with your server endpoint
+        type: 'POST',
+        data: formData,
+        async: true, // This is the default behavior, so you can omit this line
+        processData: false,
+        contentType: false, // Set to false to let the browser set the proper Content-Type
+        success: function(response) {
+            
+           
+            var query = response.data.replace('[CUSTOM_FIELDS]', 'job_title').replace('[CUSTOM_DESCRIPTION]', 'set suitable job title for job_title field from list "\'Senior Software Developer\', \'Junior Software Developer\', \'Software Tester\' and get result strictly in json format"');
+            
+            const url = "https://pocketai.openai.azure.com/openai/deployments/text-davinci-003/completions?api-version=2022-12-01";
+        const data = { "prompt": query, "max_tokens": 600, "temperature": 1, "frequency_penalty": 0, "presence_penalty": 0, "top_p": 1, "best_of": 1, "stop": null };
+        const headers = {
+            "Content-Type": "application/json",
+            "api-key": "19c50ecc3959436a9f9ed16cf47e82dd",
+        };
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: JSON.stringify(data),
+            headers: headers,
+            dataType: "json",
+            async: true, // This is the default behavior, so you can omit this line
+            processData: false,
+            contentType: false, // Set to false to let the browser set the proper Content-Type
+            success: function(response) {
+                var _response = JSON.parse(response.choices[0].text);
+                var tBody = document.getElementById('candidate-list');
+                var row = document.createElement("tr");
+
+                    var responseKeys = ['first_name', 'last_name', 'full_name', 'Email', 'PhoneNo', 'Address', 'Date_Of_Birth', 'City', 'State', 'Pincode', 'Skill Set', 'Additional Info', 'Gender']
+
+                    for(var i = 0 ; i < responseKeys.length;i++)
+                    {
+                        eval('var collumn'+i+' = document.createElement("td")');
+
+                        if(_response[responseKeys[i]] != undefined && _response[responseKeys[i]] != null && (_response[responseKeys[i]].toString().toLowerCase().trim() != 'na'))
+                        {
+                                var field = _response[responseKeys[i]];
+                        }
+                        else
+                        {
+                            var field = "";
+                        }
+
+                        eval('collumn'+i+'.textContent = "'+field+'"');
+                        eval('row.appendChild(collumn'+i+')');
+                    }
+                    tBody.appendChild(row);
+
+            },error: function(xhr, status, error) {
+                console.log(error)
+            }
+     });
+
+        },
+        error: function(xhr, status, error) {
+            console.log(error)
+            $('#response').html('Error uploading file: ' + error);
+        }
+    });
+            
+            
+			}
+           
+    </script>
+</body>
+</html>
